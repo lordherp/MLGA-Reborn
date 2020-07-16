@@ -16,14 +16,6 @@ import threading
 from PIL import ImageTk,Image
 import tkinter.font as font
 
-
-
-# LOBBY_ADD_PLAYER = 'AddSessionPlayer.*Session:GameSession PlayerId:([0-9a-f\\-]+)\\|([0-9]+)'
-# KILLER_OUTFIT = 'LogCustomization: --> ([a-zA-Z0-9]+)_[a-zA-Z0-9]+'
-# SERVER_CONNECT = 'Browse: ([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})(?::([0-9]{1,5}))?" + "//Game/Maps/OfflineLobby\\?UseDedicatedServer'
-# MATCH_WAIT = '(POST https://.+?/api/v1/queue\\])|" + "(\\[PartyContextComponent::UpdateReadyButtonStateInfo\\] Ready button updated : 1)'
-# MATCH_WAIT_CANCEL = 'RESPONSE: code 200.+?POST https://.+?/api/v1/queue/cancel\\]'
-
 killer_list = {
     "Cannibal": "CA",
     "Clown": "GK",
@@ -168,7 +160,8 @@ def mainLoop():
                     if "AddSessionPlayer" in line:
                         regex = r"[1-9][0-9]{16}"
                         match = re.search(regex, line)
-                        lastSteamId = match.group(0)
+                        if match:
+                            lastSteamId = match.group(0)
 
                     if lastSteamId !=0 and (lastSteamId is not None) and any([v in line for v in killer_list.values()]):
                         #print("DEBUG: " + " ENtered main LOOP" )          
