@@ -1,13 +1,9 @@
 # MLGA-Reborn
 You know what it is
 
-Requirements for installation:
-
-* You must have Python 3+ installed and the exe placed in a PATH location on your system.
-
-You can also directly use the provided exe file. [link](https://drive.google.com/file/d/1KGMv2gqI_IjPZDOldw0w7mee2WKBbm-W/view?usp=sharing)
-
-
+*** You must have python 3+ installed on your system
+*** You must have python.exe on your PATH
+*** Download the mlga_re.pyw file and run it
 
 
 
